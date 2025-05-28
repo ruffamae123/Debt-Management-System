@@ -1,0 +1,490 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --accent-color: #4895ef;
+    --danger-color: #f72585;
+    --success-color: #4cc9f0;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --border-color: #dee2e6;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f4f7fa;
+}
+
+/* ---------------- Sidebar ----------------- */
+.sidebar {
+    width: 270px;
+    background: #1e2a38;
+    color: #ecf0f1;
+    padding: 20px 0;
+    position: fixed;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    padding: 0 25px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.sidebar-subtitle {
+    font-size: 13px;
+    color: #95a5a6;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 15px 0;
+}
+
+.nav-item {
+    list-style: none;
+    margin-bottom: 5px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: 0.3s ease;
+    position: relative;
+    border-left: 4px solid transparent;
+}
+
+.nav-link:hover {
+    background: #273849;
+    color: #ffffff;
+    border-left: 4px solid #3498db;
+    transform: translateX(5px);
+
+}
+
+.nav-link.active {
+    background: #2f3e50;
+    color: #ffffff;
+    font-weight: 500;
+    border-left: 4px solid #3498db;
+}
+
+.nav-icon {
+    font-size: 20px;
+    margin-right: 12px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-text {
+    font-size: 14px;
+    flex: 1;
+}
+
+/* Logout button */
+.sidebar-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 25px 0;
+    margin-top: auto;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    padding: 12px 20px;
+    color: #e74c3c;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+    color: #fff;
+}
+
+/* Scrollbar for sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+.sidebar::-webkit-scrollbar-track {
+    background: #1e2a38;
+}
+.sidebar::-webkit-scrollbar-thumb {
+    background: #34495e;
+    border-radius: 10px;
+}
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background: #2c3e50; 
+}
+/* Submenu styles */
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 20px;
+}
+
+.submenu.active {
+    max-height: 500px; /* Adjust based on content */
+}
+
+.submenu-arrow {
+    margin-left: auto;
+    transition: transform 0.3s ease;
+}
+
+.submenu-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+.submenu li {
+    list-style: none;
+}
+
+.submenu .nav-link {
+    padding: 10px 20px;
+}
+.dashboard-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f5f7fa;
+    margin-left: 300px;
+    min-width: 80vw;
+}
+
+.paid-debts-container {
+    flex: 1;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.page-header h1 {
+    color: var(--dark-color);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.page-header h1 i {
+    font-size: 1.5em;
+    color: var(--success-color);
+}
+
+.header-actions {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-export {
+    background-color: white;
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-export:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-danger:hover {
+    background-color: #d61e6e;
+}
+
+.table-responsive {
+    overflow-x: auto;
+    background: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1px;
+}
+
+.paid-debts-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+}
+
+.paid-debts-table thead {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.paid-debts-table th {
+    padding: 1rem 1.25rem;
+    text-align: left;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+}
+
+.paid-debts-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+.paid-debts-table tr:last-child td {
+    border-bottom: none;
+}
+
+.paid-debts-table tbody tr:hover {
+    background-color: rgba(76, 201, 240, 0.05);
+}
+
+.paid-amount {
+    color: var(--success-color);
+    font-weight: 600;
+}
+
+.delete-form {
+    margin: 0;
+}
+
+.no-data {
+    padding: 2rem;
+    text-align: center;
+    color: var(--gray-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.no-data i {
+    font-size: 2rem;
+    color: var(--gray-color);
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .paid-debts-container {
+        padding: 1rem;
+    }
+    
+    .paid-debts-table {
+        display: block;
+    }
+    
+    .paid-debts-table thead {
+        display: none;
+    }
+    
+    .paid-debts-table tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border-color);
+        border-radius: 0.375rem;
+        padding: 0.5rem;
+    }
+    
+    .paid-debts-table td {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .paid-debts-table td:last-child {
+        border-bottom: none;
+    }
+    
+    .paid-debts-table td::before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: var(--gray-color);
+        margin-right: 1rem;
+    }
+    
+    .btn-sm {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .delete-form {
+        width: 100%;
+    }
+}
+/* Delete Button Styles */
+.delete-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(247, 37, 133, 0.3);
+}
+
+.delete-btn:active {
+    transform: translateY(0);
+}
+
+.loading-dots {
+    display: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    gap: 4px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0;
+    animation: dot-pulse 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(1) { animation-delay: 0s; }
+.dot:nth-child(2) { animation-delay: 0.2s; }
+.dot:nth-child(3) { animation-delay: 0.4s; }
+
+@keyframes dot-pulse {
+    0%, 100% { opacity: 0.2; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+}
+
+.delete-btn.loading .btn-text {
+    visibility: hidden;
+}
+
+.delete-btn.loading .loading-dots {
+    display: flex;
+}
+
+/* Confirmation Modal Styles */
+.confirm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.confirm-modal-content {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    animation: slideUp 0.3s ease;
+}
+
+.confirm-modal h3 {
+    margin-top: 0;
+    color: var(--danger-color);
+    font-size: 1.25rem;
+}
+
+.confirm-modal p {
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+    line-height: 1.5;
+}
+
+.confirm-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.btn-cancel {
+    background-color: white;
+    color: var(--gray-color);
+    border: 1px solid var(--border-color);
+}
+
+.btn-cancel:hover {
+    background-color: #f8f9fa;
+}
+
+.btn-confirm {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.btn-confirm:hover {
+    background-color: #d61e6e;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
